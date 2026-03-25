@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <Title> ConsulTech </Title>
+    <style> 
+    h1{
+        text-align: center;
+        color:aqua;
+        -webkit-text-stroke: 2px navy;
+        font-family:Arial;
+        font-size: 51px;
+    }
+    ul {
+      list-style-type: none;
+
+      margin: 0;
+      padding: 0;
+      background-color: #00e5ff;
+    }
+
+    li {
+      position: relative;
+      display: inline-block;
+    }
+
+    li a {
+      display: block;
+      color: black;
+      padding: 14px 20px;
+      text-decoration: none;
+    }
+
+    li a:hover {
+      background-color: rgb(232, 226, 226);
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: white ;
+      min-width: 160px;
+    }
+
+    .dropdown-content a {
+      display: block;
+      padding: 12px;
+      border: 1px solid black;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #00e5ff;
+    }
+
+    li:hover .dropdown-content {
+      display: block;
+    }
+    p{
+      font-size: large;
+    }
+     .sezione-card {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      min-height: calc(100vh - 50px);
+    }
+
+    .griglia {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.25rem;
+      max-width: 1100px;
+      width: 100%;
+    }
+
+    /* ===== SOLO LE CARD SONO CAMBIATE ===== */
+    .card {
+      background: #0f2255;
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 18px;
+      padding: 1.75rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+      position: relative;
+      animation: saliSu .5s both;
+      color: white;
+    }
+
+    @keyframes saliSu {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .card:nth-child(1) { animation-delay: .05s; }
+    .card:nth-child(2) { animation-delay: .15s; }
+    .card:nth-child(3) { animation-delay: .25s; }
+    .card:nth-child(4) { animation-delay: .35s; }
+
+    .card:hover {
+      transform: translateY(-6px);
+      background: #132a6a;
+      border-color: rgba(26,107,255,.6);
+      box-shadow: 0 20px 50px rgba(26,107,255,.3);
+      transition: transform .25s, border-color .25s, box-shadow .25s, background .25s;
+    }
+
+    .card hr {
+      border: none;
+      border-top: 1px solid rgba(255,255,255,0.12);
+      margin: 0;
+    }
+
+    .nome-piano {
+      font-size: .78rem;
+      font-weight: 700;
+      color: #4dd8ff;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+    }
+
+    .velocita {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: white;
+      letter-spacing: -1px;
+      line-height: 1;
+      margin: .25rem 0 .3rem;
+    }
+
+    .descrizione {
+      font-size: .83rem;
+      color: rgba(255,255,255,0.65);
+    }
+
+    .etichetta {
+      font-size: .7rem;
+      font-weight: 600;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: #4dd8ff;
+      margin-bottom: .6rem;
+    }
+
+    .card ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: .5rem;
+      padding: 0;
+      margin: 0;
+      background: none;
+    }
+
+    .card li {
+      display: flex;
+      align-items: flex-start;
+      gap: .55rem;
+      font-size: .87rem;
+      color: rgba(255,255,255,0.85);
+      background: none;
+    }
+
+    .card li::before {
+      content: '✓';
+      color: #4dd8ff;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .prezzo {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: white;
+      letter-spacing: -1px;
+      line-height: 1;
+    }
+    .prezzo sup  { font-size: 1.1rem; vertical-align: super; color: #4dd8ff; }
+    .periodo     { font-size: .8rem; color: rgba(255,255,255,0.65); margin-top: .2rem; }
+    .attivazione { font-size: .76rem; color: rgba(255,255,255,0.65); margin-top: .25rem; }
+
+    .bottone {
+      margin-top: auto;
+      width: 100%;
+      padding: .85rem;
+      border-radius: 12px;
+      border: none;
+      font-size: .9rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background .2s, transform .15s;
+    }
+    .bottone:active { transform: scale(.97); }
+
+    .bottone-normale {
+      background: rgba(255,255,255,0.08);
+      color: white;
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+    .bottone-normale:hover {
+      background: rgba(255,255,255,0.16);
+      border-color: #4dd8ff;
+    }
+
+    .bottone-blu {
+      background: #1a6bff;
+      color: white;
+      box-shadow: 0 6px 20px rgba(26,107,255,.45);
+    }
+    .bottone-blu:hover { background: #0f4ecb; }
+    footer{
+      background-color:aqua;
+      text-align: center;
+      padding: 15px;
+      margin-top: 40px;
+    }
+
+    </style>
+</head>
+<body>
+    <ul>
+    <li><a href="#"> Info </a>
+        <div class="dropdown-content">
+    <a link href="file:///C:/Users/User/Desktop/Sito%20alternanza/Sito%20web%20PCTO.html#"> Home page</a>
+   <a link href="https://maps.app.goo.gl/mLVFpbWLrxGcJao37" target="_blank">La nostra sede</a>
+    </div>
+</li>
+    <li>
+      <a href="#">Servizi</a>
+      <div class="dropdown-content">
+        <a link href="file:///C:/Users/User/Desktop/Sito%20alternanza/Cosulenze.html#">Consulenze informatiche </a>
+        <a link href="La nostra offerta formativa.html"> La nostra offerta formativa </a>
+        <a href="#"> Sviluppo web </a>
+      </div>
+    </li>
+    <li><a href="#">Contatti</a>
+        <div class="dropdown-content">
+     <a link href="https://mail.google.com/mail/u/0/#inbox?compose=CllgCJTLGfCqZWzjGstksXdlSWJcJPKHBDsZqpHdvDVJvMPzDwGSpTmMXXvzhGRKTVkHLGXjbSV" target="_blank">info@ConsulTech.it</a>
+    <a href="#"> +39 369 859 4867 </a>
+    <a href="#"> ConsulTech@pec.ifsconfao.it</a>
+    </div>
+</li>
+  </ul>
+    <img style="position:absolute; margin-left:1320px" src = "C:\Users\User\Desktop\Sito alternanza\Logo_scelto.jpeg" height="200" weight="200"  alt="logo scelto" class="logo">
+      <h1> Sviluppo web </h1>
+       <div class="sezione-card">
+      <div class="griglia">
+
+        <!-- CARD 1 -->
+        <div class="card">
+          <div>
+            <div class="nome-piano">Sito web</div>
+            <div class="velocita">Base</div>
+          </div>
+          <hr/>
+          <div>
+            <div class="etichetta">Caratteristiche</div>
+            <ul>
+              <li>Poche pagine</li>
+              <li>Design semplice</li>
+              <li>Nessuna o poche funzionalità interattive</li>
+            </ul>
+          </div>
+          <hr/>
+          <div>
+            <div class="prezzo"><sup>€</sup>800<sup>,00</sup></div>
+          </div>
+          <button class="bottone bottone-normale">Contattaci</button>
+        </div>
+
+        <!-- CARD 2 -->
+        <div class="card">
+          <div>
+            <div class="nome-piano">Sito web</div>
+            <div class="velocita">Professionale</div>
+          </div>
+          <hr/>
+          <div>
+            <div class="etichetta">Caratteristiche</div>
+            <ul>
+              <li>Design personalizzato e curato</li>
+              <li>Struttura ben organizzata</li>
+              <li>Responsive</li>
+            </ul>
+          </div>
+          <hr/>
+          <div>
+            <div class="prezzo"><sup>€</sup>2.000<sup>,00</sup></div>
+          </div>
+          <button class="bottone bottone-normale">Contattaci</button>
+        </div>
+
+        <!-- CARD 3 -->
+        <div class="card">
+          <div>
+            <div class="nome-piano">Sito web</div>
+            <div class="velocita">Avanzato</div>
+          </div>
+          <hr/>
+          <div>
+            <div class="etichetta">Caratteristiche</div>
+            <ul>
+              <li>Funzionalità complesse</li>
+              <li>Design altamente personalizzato</li>
+              <li>Automazioni</li>
+            </ul>
+          </div>
+          <hr/>
+          <div>
+            <div class="prezzo"><sup>€</sup>5.000<sup>,00</sup></div>
+          </div>
+          <button class="bottone bottone-normale">Contattaci</button>
+        </div>
+        <p>  </p>
+    <footer> 
+    <p> 2026 ConsulTech - tutti i diritti riservati </p>
+  </footer>
+  </body>
+</html>
